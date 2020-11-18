@@ -26,7 +26,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('landsOfPeaksAndValleys app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('Click to see the Peaks And Valleys');
   });
 
   it('should render Peaks', () => {

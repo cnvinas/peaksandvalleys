@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'landsOfPeaksAndValleys';
+  title = 'Click to see the Peaks And Valleys';
 
   peaks = 0;
   peaksList: number[] = [];
@@ -25,9 +25,9 @@ export class AppComponent {
     //and provide a way to test it.
   };
 
-  buildACastle = (arr: number[]) => {
-    const landArray: number[] = arr.length > 1 ? arr : [];
-
+  buildACastle = () => {
+    const landArray: number[] = Array.apply(null, Array(10)).map(function() { return Math.floor(Math.random() * 100 % 100); })
+    this.peaksList = this.valleysList = [];
     //You can always build a castle at the start of the array, provided it is non-empty
     const checkValleys = (landArray: number[], valleys: number, valleysList: number[]) => {
       let lastValley: number;
@@ -57,10 +57,7 @@ export class AppComponent {
         }
       });
 
-      this.printValleys = "ValleysList: " + valleysList + " Total of valleys: " + valleys;
-      console.log(
-        "ValleysList: " + valleysList + " Total of valleys: " + valleys
-      );
+      this.printValleys = "ValleysList: " + valleysList + " Total of valleys: " + valleysList.length;
       this.cdRef.detectChanges();
     };
 
@@ -91,8 +88,7 @@ export class AppComponent {
         }
       });
 
-      this.printPeaks = "PeaksList: " + peaksList + " Total of peaks: " + peaks;
-      console.log("PeaksList: " + peaksList + " Total of peaks: " + peaks);
+      this.printPeaks = "PeaksList: " + peaksList + " Total of peaks: " + peaksList.length;
       this.cdRef.detectChanges();
     };
 
